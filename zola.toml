@@ -1,0 +1,64 @@
+base_url = "https://arkovyx.github.io"
+theme = "ametrine"
+compile_sass = true
+build_search_index = true
+
+title = "arkovyx"
+description = "Personal website of arkovyx"
+
+author = "arkovyx"
+
+generate_feeds = true
+feed_filenames = ["atom.xml", "rss.xml"]
+
+taxonomies = []
+
+[markdown]
+render_emoji = true
+
+[markdown.highlighting]
+theme = "catppuccin-mocha"
+
+[extra]
+logo_text = "~/arkovyx"
+enable_search = true
+default_theme = "dark"
+
+list_pages = false
+recent = false
+
+# Classic Terracotta
+accent_color = ["hsl(12, 56%, 67%)", "hsl(35, 75%, 45%)"]
+
+header_nav = [
+    { url = "/", name_en = "~/home" },
+    { url = "/blog", name_en = "~/blog" },
+    { url = "/nanolog", name_en = "~/nanolog" }
+]
+
+[extra.author]
+name = "Arkovyx"
+avatar = "image.jpg"
+
+# Favicon
+[extra.meta]
+favicon = "favicon.png"
+apple_touch_icon = "apple-touch-icon.png"
+
+[extra.footer]
+text = "© 2026 arkovyx · All rights reserved."
+socials = [
+    { url = "https://github.com/arkovyx", icon = "github" },
+    { url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ", icon = "instagram" },
+    { url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ", icon = "x" }
+]
+
+[extra.nav]
+icon = "image.jpg"
+links = [
+    { name = "writing", category = [
+        { url = "/blog", name = "Blog", icon = "newspaper-clipping" },
+        { url = "/nanolog", name = "Nanolog", icon = "note-pencil" }
+    ]}
+]
+

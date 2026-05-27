@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<img id="not-found" class="pixels transparent no-hover drop-shadow" alt="404" src="{{ get_url(path='404.gif') }}">
+
+<h1>Lost?</h1>
+
+<p>This page doesn't exist. Just like my attention span in math class.</p>
+
+<p>Maybe you typed something wrong? Or maybe this page never existed. Either way, you should probably go back.</p>
+
+<div class="buttons">
+  <a class="suggested" href="/">~/home →</a>
+</div>
+
+<style>
+  #not-found {
+    width: 8rem;
+    margin-bottom: 1rem;
+  }
+</style>
+{% endblock content %}
+

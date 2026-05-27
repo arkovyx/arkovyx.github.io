@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{%- if not section.extra.no_header -%}
+  {{- "# " ~ section.title | markdown | safe -}}
+{%- endif -%}
+
+{{ section.content | safe }}
+
+<div class="article-list">
+  {%- for page in section.pages %}
+    <article class="nanolog-entry">
+      <div>
+        <div class="article-details">
+          <time datetime="{{ page.date }}">{{ page.date | date(format="%d %b %Y") }}</time>
+        </div>
+        <div class="nanolog-content">
+          {{ page.content | safe }}
+        </div>
+      </div>
+    </article>
+    {% if not loop.last %}<hr>{% endif %}
+  {%- endfor %}
+</div>
+
+<style>
+  .nanolog-entry {
+    padding: 0.5rem 0;
+  }
+  .nanolog-entry h3 {
+    font-size: var(--font-size-small);
+    margin: 0;
+  }
+  .nanolog-content {
+    font-size: var(--font-size-small);
+  }
+  .nanolog-content p {
+    margin-block: 0.25rem;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid var(--bg-muted-2);
+    margin: 0.5rem 0;
+  }
+</style>
+{% endblock content %}
+
