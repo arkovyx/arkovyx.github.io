@@ -46,7 +46,7 @@ pre table td:nth-of-type(1) {
 
 # ./whoami
 
-I am **Junaid**. I go by **arkovyx** online. I am in high school and got into programming by messing around. I spend most of my time learning Python and exploring Linux deeply. I use Arch Linux (btw) with Hyprland.
+I am **Junaid**. I go by **arkovyx** online. I am a high school student who got into programming by messing around. I spend most of my time learning Python and exploring Linux deeply. I use Arch Linux (btw) with Hyprland.
 
 >- You can read my blogs [here](/blog).
 >- You can read my nanologs [here](/nanolog).
@@ -55,7 +55,7 @@ I am **Junaid**. I go by **arkovyx** online. I am in high school and got into pr
 ---
 
 {% crt() %}
-[arkovyx@arch ~]$ cat software_stack.txt
+[ark@homelab ~]$ cat software_stack.txt
 
 [ CORE SYSTEMS ]
 OS (Desktop)  ➜  Arch Linux (btw)
@@ -76,9 +76,3 @@ Images        ➜  Nsxiv
 Theming       ➜  pywal16
 {% end %}
 
----
-
-## Contacts
-I don't use any social media so the only way to contact me is using mail
-- **Email:** `arkovyx (at) proton (dot) me`
-- **GitHub:** [github.com/arkovyx](https://github.com/arkovyx)

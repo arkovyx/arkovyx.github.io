@@ -27,30 +27,30 @@ default_theme = "dark"
 list_pages = false
 recent = false
 
-# Classic Terracotta
-accent_color = ["hsl(12, 56%, 67%)", "hsl(35, 75%, 45%)"]
+# Color theme - Terracotta & Gold
+# Warm terracotta (first) + Rich gold (second)
+accent_color = ["hsl(15, 40%, 30%)", "hsl(40, 50%, 50%)"]
 
 header_nav = [
-    { url = "/", name_en = "~/home" },
-    { url = "/blog", name_en = "~/blog" },
-    { url = "/nanolog", name_en = "~/nanolog" }
+    { url = "/", name_en = "~/home" }
 ]
 
 [extra.author]
 name = "Arkovyx"
 avatar = "image.jpg"
 
-# Favicon
 [extra.meta]
 favicon = "favicon.png"
 apple_touch_icon = "apple-touch-icon.png"
 
 [extra.footer]
-text = "© 2026 arkovyx · All rights reserved."
+copyright = "© 2026 Arkovyx · All rights reserved."
+show_powered_by = true
+show_timestamp = true
 socials = [
     { url = "https://github.com/arkovyx", icon = "github" },
-    { url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ", icon = "instagram" },
-    { url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ", icon = "x" }
+    { url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ", icon = "instagram"},
+    { url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ", icon = "x"}
 ]
 
 [extra.nav]
@@ -59,6 +59,8 @@ links = [
     { name = "writing", category = [
         { url = "/blog", name = "Blog", icon = "newspaper-clipping" },
         { url = "/nanolog", name = "Nanolog", icon = "note-pencil" }
+    ]},
+    { name = "misc", category = [
+        { url = "/contact", name = "Contact", icon = "user" }
     ]}
 ]
-
