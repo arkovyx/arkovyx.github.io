@@ -48,9 +48,9 @@ copyright = "© 2026 Arkovyx · All rights reserved."
 show_powered_by = true
 show_timestamp = true
 socials = [
-    { url = "https://github.com/arkovyx", icon = "github" },
-    { url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ", icon = "instagram"},
-    { url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ", icon = "x"}
+    { url = "https://github.com/arkovyx", icon = "github"},
+    { url = "https://arkovyx.github.io/keylocity", icon = "speedtest"},
+    { url = "https://instagram.com/arkovyx", icon = "instagram"},
 ]
 
 [extra.nav]

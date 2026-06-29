@@ -75,9 +75,9 @@
           <li>
             <a href="{{ link.url }}" rel="{{ rel_attributes }} me">
               {%- set icon = load_data(path="icons/simple/" ~ link.icon ~ ".svg", required=false) -%}
-                {% if not icon %}
-                  {%- set icon = load_data(path="themes/ametrine/icons/simple/" ~ link.icon ~ ".svg") -%}
-                {% endif %}
+              {% if not icon %}
+                {%- set icon = load_data(path="themes/ametrine/icons/simple/" ~ link.icon ~ ".svg") -%}
+              {% endif %}
               {{- icon | safe -}}
             </a>
           </li>

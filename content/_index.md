@@ -76,3 +76,6 @@ Images        ➜  Nsxiv
 Theming       ➜  pywal16
 {% end %}
 
+# ./projects
+
+[KEYLOCITY](https://github.arkovyx.io/keylocity): A minimalist typing test with real-time keylocity and accuracy tracking.
