@@ -6,7 +6,7 @@ description = "Contact and secure communication"
 
 > - **Encryption (GPG):** All personal communications are signed using my public key.
 > - **Import:** `curl -sL https://arkovyx.github.io/pubkey.asc | gpg --import`
-> - **Fingerprint:** `24F1 F2A9 566A 775C AB92  7505 0029 D3DF 810A 625B`
+> - **Fingerprint:** `014C 0A4F FA50 1323 E1D2  BD4C E356 829F ACEB 27AC`
 > - **Public Key Servers:** [keys.openpgp](https://keys.openpgp.org/search?q=arkovyx%40proton.me)
 
 - **Email:** `arkovyx (at) proton (dot) me`

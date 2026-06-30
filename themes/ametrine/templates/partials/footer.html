@@ -25,43 +25,9 @@
       </p>
     {%- endif %}
 
-    {%- if config.extra.source_url and config.extra.footer.show_source %}
-      <p>
-        <a class="link external" href="{{ config.extra.source_url }}" rel="{{ rel_attributes }}">
-          {{- macros::translate(key="source", default="Website Source", language_strings=language_strings) -}}
-        </a>
-      </p>
-    {%- endif %}
-
-    {%- if config.extra.footer.webrings %}
-      <ul class="webrings">
-        {%- for webring in config.extra.footer.webrings %}
-          <li class="webring">
-            <a class="link external" href="{{ webring.url }}">
-              {{- webring.name -}}
-            </a>
-            <a class="link previous" href="{{ webring.previous | replace(from='$HOST', to=config.base_url | replace(from='https://', to='')) }}" title="{{ macros::translate(key='previous', default='Previous', language_strings=language_strings) }}">
-              {{- macros::icon(name="arrow-left") -}}
-            </a>
-            {%- if webring.random %}
-              <a class="link random" href="{{ webring.random }}" title="{{ macros::translate(key='random', default='Random', language_strings=language_strings) }}">
-                {{- macros::icon(name="dice-three") -}}
-              </a>
-            {%- endif %}
-            <a class="link next" href="{{ webring.next | replace(from='$HOST', to=config.base_url | replace(from='https://', to='')) }}" title="{{ macros::translate(key='next', default='Next', language_strings=language_strings) }}">
-              {{- macros::icon(name="arrow-right") -}}
-            </a>
-          </li>
-        {%- endfor %}  
-      </ul>
-    {%- endif -%}
-
     {%- if config.extra.footer.show_timestamp %}
       {%- set build_timestamp = now(utc=true) | date(format=date_format_long, timezone=config.extra.timezone | default(value='UTC'), locale=date_locale) -%}
-      {%- set build_commit = load_data(path=".git/ORIG_HEAD", required=false) -%}
-      <p class="timestamp">
-        {{- build_timestamp }}{% if build_commit %}, {{ build_commit | as_str | truncate(length=7, end="") }}{% endif -%}
-      </p>
+      <p class="timestamp">{{ build_timestamp }}</p>
     {%- endif %}
   </div>
 
