@@ -78,4 +78,4 @@ Theming       ➜  pywal16
 
 # ./projects
 
-[KEYLOCITY](https://arkovyx.github.io/keylocity): A minimalist typing test with real-time keylocity and accuracy tracking.
+- [KEYLOCITY](https://arkovyx.github.io/keylocity/): A minimalist typing test with real-time keylocity and accuracy tracking.
