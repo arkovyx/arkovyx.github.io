@@ -10,6 +10,5 @@ description = "Contact and secure communication"
 > - **Public Key Servers:** [keys.openpgp](https://keys.openpgp.org/search?q=arkovyx%40proton.me)
 
 - **Email:** `arkovyx (at) proton (dot) me`
-- **Matrix:** `@me_arkovyx:matrix.org`
 - **GitHub:** [github.com/arkovyx](https://github.com/arkovyx)
 
