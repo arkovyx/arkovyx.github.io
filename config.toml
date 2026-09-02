@@ -5,12 +5,10 @@ build_search_index = true
 
 title = "arkovyx"
 description = "Personal website of arkovyx"
-
 author = "arkovyx"
 
 generate_feeds = true
 feed_filenames = ["atom.xml", "rss.xml"]
-
 taxonomies = []
 
 [markdown]
@@ -27,8 +25,6 @@ default_theme = "dark"
 list_pages = false
 recent = false
 
-# Color theme - Terracotta & Gold
-# Warm terracotta (first) + Rich gold (second)
 accent_color = ["hsl(15, 40%, 30%)", "hsl(40, 50%, 50%)"]
 
 header_nav = [
@@ -37,11 +33,11 @@ header_nav = [
 
 [extra.author]
 name = "Arkovyx"
-avatar = "image.jpg"
+avatar = "1.jpg"
 
 [extra.meta]
-favicon = "favicon.png"
-apple_touch_icon = "apple-touch-icon.png"
+favicon = "2.jpg"
+apple_touch_icon = "2.jpg"
 
 [extra.footer]
 copyright = "© 2026 Arkovyx · All rights reserved."
@@ -54,7 +50,7 @@ socials = [
 ]
 
 [extra.nav]
-icon = "image.jpg"
+icon = "2.jpg"
 links = [
     { name = "writing", category = [
         { url = "/blog", name = "Blog", icon = "newspaper-clipping" },
