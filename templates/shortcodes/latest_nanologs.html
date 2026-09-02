@@ -1,0 +1,20 @@
+{% set nano = get_section(path="nanolog/_index.md") %}
+<div class="nanolog-preview">
+  {% for post in nano.pages | reverse | slice(end=3) %}
+  <div class="nano-item">
+    <span class="date">{{ post.date }}</span>
+    <a href="{{ post.permalink }}">{{ post.title }}</a>
+  </div>
+  {% endfor %}
+</div>
+<style>
+  .nanolog-preview .nano-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #333;
+  }
+  .nanolog-preview .date {
+    color: #999;
+    font-size: 0.85rem;
+    margin-right: 1rem;
+  }
+</style>
