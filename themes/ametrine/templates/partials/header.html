@@ -41,7 +41,7 @@
     {{- title -}}
   </span>
   <ul class="buttons">
-    {%- if config.generate_feeds or section.generate_feeds or (taxonomy.feed and term.path) -%}
+    {%- if config.generate_feeds or section.generate_feeds or taxonomy.feed and term.path -%}
       <li>
         <details class="closable">
           <summary title="{{ macros::translate(key='feed', default='Feed', language_strings=language_strings) }}">

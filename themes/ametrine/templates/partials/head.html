@@ -116,7 +116,7 @@
     <link rel="apple-touch-icon" type="image/{{ apple_touch_icon_type }}" sizes="180x180" href="{{ apple_touch_icon | safe }}" />
   {%- endif %}
 
-  {%- if config.generate_feeds or section.generate_feeds or (taxonomy.feed and term.path) %}
+  {%- if config.generate_feeds or section.generate_feeds or taxonomy.feed and term.path %}
     {%- set feed_filenames = config.feed_filenames | default(value="atom.xml") %}
     {%- if feed_filenames is iterable %}
       {%- for feed_filename in feed_filenames %}
