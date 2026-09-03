@@ -6,7 +6,6 @@ insert_anchor_links = "left"
 no_header = true
 +++
 
-<!-- ========== IMAGE WITH CRT EFFECT ========== -->
 <div id="logo-wrapper" class="crt">
   <pre>
     <img id="logo" class="transparent no-hover" src="1.jpg" alt="arkovyx logo">
@@ -14,11 +13,6 @@ no_header = true
 </div>
 
 <style>
-  /* ============================================================
-     IMAGE CRT EFFECT – ROUNDED, STATIC, NO HOVER INTERACTION
-     ============================================================ */
-
-  /* Wrapper – clips scanlines to rounded shape */
   #logo-wrapper.crt {
     display: inline-block;
     border-radius: 12px;
@@ -27,7 +21,6 @@ no_header = true
     border: none !important;
   }
 
-  /* Pre inside wrapper – clean, no extra styles */
   #logo-wrapper.crt pre {
     display: flex;
     justify-content: center;
@@ -39,7 +32,6 @@ no_header = true
     box-shadow: none !important;
   }
 
-  /* The image itself */
   #logo {
     width: 100%;
     max-width: 100%;
@@ -55,7 +47,6 @@ no_header = true
     cursor: default !important;
   }
 
-  /* Kill ALL hover effects – brightness, shadow, scale, everything */
   #logo.no-hover,
   #logo.no-hover:hover {
     filter: brightness(0.9) contrast(1.1) saturate(1.2) !important;
@@ -70,15 +61,10 @@ no_header = true
     -webkit-filter: brightness(0.9) contrast(1.1) saturate(1.2) !important;
   }
 
-  /* Wrapper hover – kill anything from theme */
   #logo-wrapper:hover {
     transform: none !important;
     opacity: 1 !important;
   }
-
-  /* ============================================================
-     SOFTWARE STACK CRT – UNTOUCHED, KEEP AS IS
-     ============================================================ */
 
   .crt {
     width: 100% !important;
@@ -101,10 +87,6 @@ no_header = true
   }
 </style>
 
-<!-- ============================================================
-     WHOAMI SECTION
-     ============================================================ -->
-
 # ./whoami
 
 I am **Junaid**. I go by **arkovyx** online. I am a high school student who got into programming by messing around. I spend most of my time learning Python and exploring Linux deeply. I use Arch Linux (btw) with Hyprland.
@@ -114,10 +96,6 @@ I am **Junaid**. I go by **arkovyx** online. I am a high school student who got 
 > - My **dotfiles** are available on this [git repo](https://github.com/arkovyx/dotfiles).
 
 ---
-
-<!-- ============================================================
-     SOFTWARE STACK (CRT MACRO) – GREEN HACKER EFFECT
-     ============================================================ -->
 
 {% crt() %}
 [ark@homelab ~]$ cat software_stack.txt
@@ -142,10 +120,6 @@ Theming       ➜  pywal16
 {% end %}
 
 ---
-
-<!-- ============================================================
-     PROJECTS
-     ============================================================ -->
 
 # ./projects
 
