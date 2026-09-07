@@ -46,7 +46,8 @@ show_timestamp = true
 socials = [
     { url = "https://github.com/arkovyx", icon = "github"},
     { url = "https://arkovyx.github.io/keylocity", icon = "speedtest"},
-    { url = "https://instagram.com/arkovyx", icon = "instagram"},
+    { url = "https://guthib.com/", icon = "instagram"},
+    { url = "https://guthib.com/", icon = "x"},
 ]
 
 [extra.nav]
