@@ -3,7 +3,7 @@ title = "at the event"
 date = 2026-09-26
 +++
 
-Presented ARK-II today at the Sahodaya AI & Robotics competition at Venkateshwara Public School, Peth.
+Presented [ARK-II](https://github.com/arkovyx/ark-ii/) today at the Sahodaya AI & Robotics competition at Venkateshwara Public School, Peth.
 
 Didn't get anything.
 
