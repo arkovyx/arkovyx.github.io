@@ -1,3 +1,4 @@
+
 {% extends "ametrine/templates/section.html" %}
 
 {% block content %}
@@ -8,40 +9,148 @@
 
 {{ section.content | safe }}
 
-<div class="article-list">
+<div class="nanolog-list">
   {%- for page in section.pages %}
     <article class="nanolog-entry">
-      <div>
-        <div class="article-details">
-          <time datetime="{{ page.date }}">{{ page.date | date(format="%d %b %Y") }}</time>
-        </div>
-        <div class="nanolog-content">
-          {{ page.content | safe }}
-        </div>
+      <div class="nanolog-meta">
+        <span class="nanolog-marker"></span>
+        <time datetime="{{ page.date }}">
+          {{ page.date | date(format="%d %b %Y") }}
+        </time>
+      </div>
+
+      <div class="nanolog-content">
+        {{ page.content | safe }}
       </div>
     </article>
-    {% if not loop.last %}<hr>{% endif %}
   {%- endfor %}
 </div>
 
 <style>
+  .nanolog-list {
+    --nanolog-accent: var(--link-color, currentColor);
+    position: relative;
+    margin-block: 2rem;
+    padding-left: 0;
+  }
+
   .nanolog-entry {
-    padding: 0.5rem 0;
+    position: relative;
+    display: grid;
+    grid-template-columns: 9rem minmax(0, 1fr);
+    column-gap: 1.5rem;
+    padding: 0 0 2rem;
   }
-  .nanolog-entry h3 {
+
+  /* The timeline rail */
+  .nanolog-entry:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 0.25rem;
+    top: 1.15rem;
+    bottom: 0;
+    width: 1px;
+    background: var(--bg-muted-2);
+  }
+
+  /* Date and marker */
+  .nanolog-meta {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding-top: 0.15rem;
+    color: var(--nanolog-accent);
     font-size: var(--font-size-small);
-    margin: 0;
+    font-family: var(--font-family-mono, monospace);
+    white-space: nowrap;
   }
+
+  .nanolog-marker {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-top: 0.3rem;
+    margin-left: 0;
+    border: 1px solid var(--nanolog-accent);
+    border-radius: 50%;
+    background: var(--bg);
+    transition: background 160ms ease, transform 160ms ease;
+  }
+
+  /* Entry content */
   .nanolog-content {
+    min-width: 0;
     font-size: var(--font-size-small);
+    line-height: 1.8;
+    overflow-wrap: anywhere;
   }
+
+  .nanolog-content > :first-child {
+    margin-top: 0;
+  }
+
+  .nanolog-content > :last-child {
+    margin-bottom: 0;
+  }
+
   .nanolog-content p {
-    margin-block: 0.25rem;
+    margin-block: 0.45rem;
   }
-  hr {
-    border: none;
-    border-top: 1px solid var(--bg-muted-2);
-    margin: 0.5rem 0;
+
+  .nanolog-content h1,
+  .nanolog-content h2,
+  .nanolog-content h3 {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-block: 0.25rem 0.5rem;
+  }
+
+  .nanolog-content a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  .nanolog-entry:hover .nanolog-marker {
+    background: var(--nanolog-accent);
+    transform: scale(1.15);
+  }
+
+  /* Smaller screens */
+  @media (max-width: 600px) {
+    .nanolog-list {
+      margin-block: 1.5rem;
+    }
+
+    .nanolog-entry {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.65rem;
+      padding-bottom: 1.75rem;
+      padding-left: 1.5rem;
+    }
+
+    .nanolog-entry:not(:last-child)::before {
+      left: 0.25rem;
+      top: 1.15rem;
+    }
+
+    .nanolog-meta {
+      font-size: 0.8rem;
+    }
+
+    .nanolog-content {
+      line-height: 1.75;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nanolog-marker {
+      transition: none;
+    }
   }
 </style>
+
 {% endblock content %}
+
