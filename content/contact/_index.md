@@ -3,6 +3,25 @@ title = "Contact Me"
 description = "Contact and secure communication"
 +++
 
+<style>
+    @font-face {
+        font-family: "NType82 Mono";
+        src: url("/fonts/nothingfont/fonts/NType82-Headline.otf") format("opentype");
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    h1:not(:has(.zola-anchor)) {
+        display: none;
+    }
+
+    h1:has(.zola-anchor) {
+        font-family: "NType82 Mono", monospace;
+    }
+</style>
+
+# ./contact-me
 
 > - **Encryption (GPG):** All personal communications are signed using my public key.
 > - **Import:** `curl -sL https://arkovyx.github.io/pubkey.asc | gpg --import`
