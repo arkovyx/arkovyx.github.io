@@ -1,156 +1,134 @@
-
-{% extends "ametrine/templates/section.html" %}
+{% extends "section.html" %}
 
 {% block content %}
+{{ super() }}
 
-{%- if not section.extra.no_header -%}
-  {{- "# " ~ section.title | markdown | safe -}}
-{%- endif -%}
-
-{{ section.content | safe }}
+{%- set total = section.pages | length -%}
+{%- set first = section.pages | first -%}
+{%- set last = section.pages | last -%}
 
 <div class="nanolog-list">
+
+  <div class="nanolog-header">
+    <span class="nanolog-cmd">$ tail -n {{ total }} nanolog.log</span>
+    <span class="nanolog-count">{{ total }} entries · {{ last.date | date(format="%Y-%m-%d") }} → {{ first.date | date(format="%Y-%m-%d") }}</span>
+  </div>
+
   {%- for page in section.pages %}
     <article class="nanolog-entry">
-      <div class="nanolog-meta">
-        <span class="nanolog-marker"></span>
-        <time datetime="{{ page.date }}">
-          {{ page.date | date(format="%d %b %Y") }}
-        </time>
-      </div>
-
-      <div class="nanolog-content">
-        {{ page.content | safe }}
-      </div>
+      <header class="nanolog-meta">
+        <span class="nanolog-index">[{% if loop.index < 10 %}00{% elif loop.index < 100 %}0{% endif %}{{ loop.index }}]</span>
+        <span class="nanolog-prompt">❯</span>
+        <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+        <span class="nanolog-sep">·</span>
+        <span class="nanolog-time">{{ page.date | date(format="%H:%M") }}</span>
+      </header>
+      <div class="nanolog-content">{{ page.content | safe }}</div>
     </article>
+    {%- if not loop.last %}
+      <div class="nanolog-divider">──────────────────────────────</div>
+    {%- endif %}
   {%- endfor %}
+
+  <div class="nanolog-footer">
+    <span>EOF · {{ total }} entries read</span>
+    <span>ark@homelab:~$ █</span>
+  </div>
+
 </div>
 
 <style>
   .nanolog-list {
-    --nanolog-accent: var(--link-color, currentColor);
-    position: relative;
+    --nanolog-accent: var(--link-color, #c9a96e);
+    --nanolog-dim: color-mix(in srgb, var(--nanolog-accent) 55%, transparent);
+    --nanolog-faint: color-mix(in srgb, var(--nanolog-accent) 20%, transparent);
     margin-block: 2rem;
-    padding-left: 0;
+    font-family: var(--font-family-mono, monospace);
   }
+
+  .nanolog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.5rem 0.9rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--nanolog-faint);
+    border-left: 3px solid var(--nanolog-accent);
+    background: color-mix(in srgb, var(--nanolog-accent) 6%, transparent);
+    font-size: 0.8em;
+  }
+  .nanolog-cmd   { color: var(--nanolog-accent); }
+  .nanolog-count { color: var(--nanolog-dim); font-size: 0.9em; }
 
   .nanolog-entry {
-    position: relative;
-    display: grid;
-    grid-template-columns: 9rem minmax(0, 1fr);
-    column-gap: 1.5rem;
-    padding: 0 0 2rem;
+    padding: 0.4rem 0.9rem 0.9rem;
+    margin-bottom: 0.4rem;
+    border-left: 2px solid var(--nanolog-faint);
+    transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+  }
+  .nanolog-entry:hover {
+    border-left-color: var(--nanolog-accent);
+    background: color-mix(in srgb, var(--nanolog-accent) 5%, transparent);
+    transform: translateX(2px);
   }
 
-  /* The timeline rail */
-  .nanolog-entry:not(:last-child)::before {
-    content: "";
-    position: absolute;
-    left: 0.25rem;
-    top: 1.15rem;
-    bottom: 0;
-    width: 1px;
-    background: var(--bg-muted-2);
-  }
-
-  /* Date and marker */
   .nanolog-meta {
-    position: relative;
     display: flex;
-    align-items: flex-start;
-    gap: 0.8rem;
-    padding-top: 0.15rem;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.76em;
     color: var(--nanolog-accent);
-    font-size: var(--font-size-small);
-    font-family: var(--font-family-mono, monospace);
+    margin-bottom: 0.55rem;
+    letter-spacing: 0.04em;
+  }
+  .nanolog-index  { color: var(--nanolog-accent); font-weight: 700; opacity: 0.85; }
+  .nanolog-prompt { opacity: 0.55; }
+  .nanolog-sep,
+  .nanolog-time   { color: var(--nanolog-dim); }
+
+  .nanolog-content {
+    line-height: 1.7;
+    font-family: initial;
+  }
+  .nanolog-content > :first-child { margin-top: 0; }
+  .nanolog-content > :last-child  { margin-bottom: 0; }
+  .nanolog-content p { margin-block: 0.35rem; }
+
+  .nanolog-divider {
+    margin: 0.2rem 0.9rem 0.4rem;
+    color: var(--nanolog-faint);
+    font-size: 0.7em;
+    letter-spacing: 0.15em;
+    overflow: hidden;
     white-space: nowrap;
   }
 
-  .nanolog-marker {
-    position: relative;
-    z-index: 1;
-    flex: 0 0 auto;
-    width: 0.55rem;
-    height: 0.55rem;
-    margin-top: 0.3rem;
-    margin-left: 0;
-    border: 1px solid var(--nanolog-accent);
-    border-radius: 50%;
-    background: var(--bg);
-    transition: background 160ms ease, transform 160ms ease;
+  .nanolog-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding: 0.6rem 0.9rem;
+    border-top: 1px solid var(--nanolog-faint);
+    font-size: 0.76em;
+    color: var(--nanolog-dim);
   }
 
-  /* Entry content */
-  .nanolog-content {
-    min-width: 0;
-    font-size: var(--font-size-small);
-    line-height: 1.8;
-    overflow-wrap: anywhere;
-  }
-
-  .nanolog-content > :first-child {
-    margin-top: 0;
-  }
-
-  .nanolog-content > :last-child {
-    margin-bottom: 0;
-  }
-
-  .nanolog-content p {
-    margin-block: 0.45rem;
-  }
-
-  .nanolog-content h1,
-  .nanolog-content h2,
-  .nanolog-content h3 {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-block: 0.25rem 0.5rem;
-  }
-
-  .nanolog-content a {
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-  }
-
-  .nanolog-entry:hover .nanolog-marker {
-    background: var(--nanolog-accent);
-    transform: scale(1.15);
-  }
-
-  /* Smaller screens */
   @media (max-width: 600px) {
-    .nanolog-list {
-      margin-block: 1.5rem;
-    }
-
-    .nanolog-entry {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 0.65rem;
-      padding-bottom: 1.75rem;
-      padding-left: 1.5rem;
-    }
-
-    .nanolog-entry:not(:last-child)::before {
-      left: 0.25rem;
-      top: 1.15rem;
-    }
-
-    .nanolog-meta {
-      font-size: 0.8rem;
-    }
-
-    .nanolog-content {
-      line-height: 1.75;
-    }
+    .nanolog-header,
+    .nanolog-footer { font-size: 0.72em; }
+    .nanolog-entry  { padding-left: 0.6rem; padding-right: 0.5rem; }
+    .nanolog-divider { margin-left: 0.6rem; margin-right: 0.6rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .nanolog-marker {
-      transition: none;
-    }
+    .nanolog-entry { transition: none; }
+    .nanolog-entry:hover { transform: none; }
   }
 </style>
 
 {% endblock content %}
-
