@@ -1,34 +1,36 @@
 +++
-title = "~/blog"
+title = "./blogs"
 description = "Long-form articles and tutorials"
 sort_by = "date"
+insert_anchor_links = "left"
 +++
 
-
 <style>
-  #logo {
-    width: min(calc(var(--content-width) / 2), 100%);
-    border-radius: 50%;
-    filter: brightness(0.9) contrast(1.1) saturate(1.2);
-    box-shadow: 0 0 30px rgba(201, 169, 110, 0.3), 0 0 60px rgba(201, 169, 110, 0.1);
-    transition: all 0.5s ease;
-  }
+    @font-face {
+        font-family: "NType82 Mono";
+        src: url("/fonts/nothingfont/fonts/NType82-Headline.otf") format("opentype");
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+    }
 
-  #logo:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1) contrast(1.15) saturate(1.3);
-    box-shadow: 0 0 40px rgba(201, 169, 110, 0.5), 0 0 80px rgba(201, 169, 110, 0.2);
-  }
+    /* Hide any h1 without an anchor = hides Duckquill's auto title,
+       leaves your markdown heading (# ./blogs) untouched */
+    h1:not(:has(.zola-anchor)) {
+        display: none;
+    }
 
-  .crt {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .crt pre, .crt code {
-    width: 100% !important;
-  }
+    /* Style your custom markdown heading */
+    h1:has(.zola-anchor) {
+        font-family: "NType82 Mono", monospace;
+    }
 </style>
+
+# ./blogs
+
+Nanologging was too little commitment.
+
+---
 
 {% crt() %}
 ```
@@ -50,7 +52,3 @@ ____0_____0__\|/__@@@@__@@@__________|_\|/__|___\|/__\|/___________|_|_
 {% end %}
 
 ---
-
-Welcome to Arkovyx's blog. I post about various stuff in here, mostly regarding Computers.
-
-
