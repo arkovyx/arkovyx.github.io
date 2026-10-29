@@ -110,4 +110,4 @@ Most of my free time goes into the terminal. I read more documentation than fict
 
 - [KEYLOCITY](https://arkovyx.github.io/keylocity/): A minimalist typing test with real-time keylocity and accuracy tracking.
 - [ARK - II](https://github.com/arkovyx/ark-ii/): A Developer AI Assistant built for Arch Linux.
-
+- [TZEUK](https://github.com/arkovyx/tzeuk/): Custom shell built on Quickshell for arch + hyprland setup.
