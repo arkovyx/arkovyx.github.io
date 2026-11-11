@@ -41,11 +41,6 @@ insert_anchor_links = "left"
 
 # ./home
 
-<blockquote>
-    <p>IF it works, leave it alone; IF you are me, touch it anyway.</p>
-    <footer>— <cite>me</cite></footer>
-</blockquote>
-
 {% crt() %}
 ```
 [me@arkovyx ~]$ af
